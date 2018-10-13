@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { User } from '../../providers';
-import { TabsPage } from '../tabs/tabs';
+import { MainPage } from '../';
 
 @IonicPage()
 @Component({
@@ -29,7 +29,7 @@ export class LoginPage {
   // Attempt to login in through our User service
   doLogin() {
     this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push(TabsPage);
+      this.navCtrl.push(MainPage);
     }, (err) => {
       //this.navCtrl.push(TabsPage);
       // Unable to log in
