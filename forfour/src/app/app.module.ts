@@ -12,10 +12,15 @@ import { CalendarViewPage } from '../pages/calendar-view/calendar-view';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import { Api } from '../providers/api/api';
+import { HttpClientModule } from '@angular/common/http';
+
 //import { NgCalendarModule } from 'ionic2-calendar';
 import { CalendarModule } from 'ion2-calendar';
-import { HttpClientModule } from '@angular/common/http';
-import { Api } from '../providers/api/api';
+
+import { WelcomePage } from '../pages/welcome/welcome';
+import { User } from '../providers/user/user';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,8 @@ import { Api } from '../providers/api/api';
     CalendarViewPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    WelcomePage
   ],
   imports: [
     BrowserModule,
@@ -37,11 +43,13 @@ import { Api } from '../providers/api/api';
     CalendarViewPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    WelcomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    User,
     Api,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
