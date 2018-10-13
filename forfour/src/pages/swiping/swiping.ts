@@ -51,8 +51,13 @@ export class SwipingPage {
       event.target.style.background = '#ffffff';
     });
     
-    this.cards = [{email: ''}];
-    this.addNewCards(1);
+    this.cards = [{
+      id: '-1',
+      title: "Finished!",
+      subtitle: "You're ready to be matched.",
+      thumbnailUrl: "https://images.pexels.com/photos/796607/pexels-photo-796607.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+    }];
+    this.addCards();
   }
 
   // Called whenever we drag an element
@@ -68,24 +73,24 @@ export class SwipingPage {
       color = '#' + hexCode + 'FF' + hexCode;
     }
     
-    element.style.background = color;
+    var overlay = element.getElementsByClassName('color')[0];
+    overlay.style.background = color;
     element.style['transform'] = `translate3d(0, 0, 0) translate(${x}px, ${y}px) rotate(${r}deg)`;
   }
   
   // Connected through HTML
   voteUp(like: boolean) {
     let removedCard = this.cards.pop();
-    this.addNewCards(1);
-    if (like) {
-      this.recentCard = 'You liked: ' + removedCard.email;
+    if (!like) {
+      this.recentCard = 'You liked !: ' + removedCard.id;
     } else {
-      this.recentCard = 'You disliked: ' + removedCard.email;
+      this.recentCard = 'You disliked !: ' + removedCard.id;
     }
   }
   
   // Add new cards to our array
-  addNewCards(count: number) {
-    this.http.get('https://randomuser.me/api/?results=' + count)
+  addCards() {
+    this.http.get('http://localhost:3000/questions')
     .map(data => data.json().results)
     .subscribe(result => {
       for (let val of result) {
