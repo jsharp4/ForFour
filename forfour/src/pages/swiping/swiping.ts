@@ -130,7 +130,6 @@ export class SwipingPage {
     while (hex.length < padding) {
       hex = "0" + hex;
     }
-    
     return hex;
   }
 
