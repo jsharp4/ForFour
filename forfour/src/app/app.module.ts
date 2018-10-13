@@ -7,7 +7,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { LoginView } from '../pages/login/login';
+import { WelcomePage } from '../pages/welcome/welcome';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginView
+    WelcomePage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginView
+    WelcomePage
   ],
   providers: [
     StatusBar,
