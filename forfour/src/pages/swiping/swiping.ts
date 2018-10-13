@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { TabsPage } from '../tabs/tabs';
+import { Api } from '../../providers/api/api';
 import {
   StackConfig,
   Stack,
@@ -11,6 +12,7 @@ import {
   SwingStackComponent,
   SwingCardComponent} from 'angular2-swing';
 import 'rxjs/Rx';
+import { isBoolean } from 'ionic-angular/umd/util/util';
 
 /**
  * Generated class for the SwipingPage page.
@@ -31,8 +33,11 @@ export class SwipingPage {
   cards: Array<any>;
   stackConfig: StackConfig;
   recentCard: string = '';
+  resultObj: any = {
+    answers: []
+  };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, private api: Api) {
     this.stackConfig = {
       throwOutConfidence: (offsetX, offsetY, element) => {
         return Math.min(Math.abs(offsetX) / (element.offsetWidth/2), 1);
@@ -80,6 +85,9 @@ export class SwipingPage {
   }
 
   goHome() {
+    console.log(this.resultObj);
+    // Uncomment as soon as api server is ready
+    //let seq = this.api.post('answers', JSON.stringify(this.resultObj));
     this.navCtrl.setRoot(TabsPage);
   }
   
@@ -89,16 +97,23 @@ export class SwipingPage {
     if(removedCard.id == -1){
       this.goHome();
     }
-    if (!like) {
-      this.recentCard = 'You liked !: ' + removedCard.id;
-    } else {
-      this.recentCard = 'You disliked !: ' + removedCard.id;
+    let answerData = {
+      id: removedCard.id,
+      answer: undefined
     }
+    if (!like) {
+      answerData.answer = true;
+      this.recentCard = 'You liked !: ' + removedCard.title;
+    } else {
+      answerData.answer = false;
+      this.recentCard = 'You disliked !: ' + removedCard.title;
+    }
+    this.resultObj.answers.push(answerData);
   }
   
   // Add new cards to our array
   addCards() {
-    this.http.get('http://localhost:3000/questions')
+    this.http.get('http://local2.flomllr.com/questions')
     .map(data => data.json().results)
     .subscribe(result => {
       for (let val of result) {
