@@ -18,9 +18,6 @@ export class LoginPage {
     password: 'test'
   };
 
-  // Our translated text strings
-  private loginErrorString: string;
-
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController) {
