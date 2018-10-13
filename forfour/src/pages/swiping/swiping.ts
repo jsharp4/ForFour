@@ -1,6 +1,7 @@
 import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
+import { TabsPage } from '../tabs/tabs';
 import {
   StackConfig,
   Stack,
@@ -77,10 +78,17 @@ export class SwipingPage {
     overlay.style.background = color;
     element.style['transform'] = `translate3d(0, 0, 0) translate(${x}px, ${y}px) rotate(${r}deg)`;
   }
+
+  goHome() {
+    this.navCtrl.setRoot(TabsPage);
+  }
   
   // Connected through HTML
   voteUp(like: boolean) {
     let removedCard = this.cards.pop();
+    if(removedCard.id == -1){
+      this.goHome();
+    }
     if (!like) {
       this.recentCard = 'You liked !: ' + removedCard.id;
     } else {

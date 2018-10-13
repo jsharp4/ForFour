@@ -24,6 +24,7 @@
           <div class="card-subtitle">{{ c.subtitle }}</div>
         </ion-card>
    
+        <!-- For every card except the last one -->
         <ion-row *ngIf="c.id>=0">
           <ion-col>
             <button ion-button clear small icon-left color="primary" (click)="voteUp(true)">
@@ -38,6 +39,15 @@
             </button>
           </ion-col>
         </ion-row>
+
+        <!-- For the last card -->
+        <ion-row *ngIf="c.id==-1">
+            <ion-col>
+              <button ion-button clear small icon-left color="primary" (click)="goHome()">
+                Continue
+              </button>
+            </ion-col>
+          </ion-row>
       </ion-card>
     </div>
     <p style="text-align: center; width: 100%;">{{ recentCard }}</p>
