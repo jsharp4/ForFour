@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 //import { NgCalendarModule } from 'ionic2-calendar';
 import { CalendarModule } from 'ion2-calendar';
+import { ToastController } from 'ionic-angular';
+import { Api } from '../../providers/api/api';
 
 /**
  * Generated class for the CalendarViewPage page.
@@ -22,7 +24,8 @@ export class CalendarViewPage {
   dateMulti: string[];
   type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
   optionsMulti: CalendarComponentOptions = {
-    pickMode: 'multi'
+    pickMode: 'multi',
+    color: 'secondary'
   };
 
   // eventSource = [];
@@ -34,13 +37,24 @@ export class CalendarViewPage {
   //   currentDate: this.selectedDay
   // }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public toastCtrl: ToastController, public api: Api) {
+  }
+
+  saveDates(){
+    this.api.post('userAvailability', JSON.stringify(this.dateMulti)).share();
+  }
+
+  presentToast() {
+      const toast = this.toastCtrl.create({
+        message: 'Dates Saved!',
+        duration: 3000
+      });
+      this.saveDates();
+      toast.present(toast);
   }
 
 
-  onSelect(){
-    
-  }
 
 
 
