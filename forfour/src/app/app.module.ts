@@ -8,6 +8,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { SwipingPage } from '../pages/swiping/swiping';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,7 +25,8 @@ import { SwingModule } from 'angular2-swing';
     ContactPage,
     HomePage,
     TabsPage,
-    WelcomePage
+    WelcomePage,
+    SwipingPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { SwingModule } from 'angular2-swing';
     ContactPage,
     HomePage,
     TabsPage,
-    WelcomePage
+    WelcomePage,
+    SwipingPage
   ],
   providers: [
     StatusBar,
