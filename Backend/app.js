@@ -1,9 +1,12 @@
 var express = require('express');
 var db = require('./db');
 var pool = require('./pool');
+var cors = require('cors');
 var http = require('http');
 
 var app = express();
+
+app.use(cors());
 
 var username = "";
 
