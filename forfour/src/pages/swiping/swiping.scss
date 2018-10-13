@@ -1,12 +1,13 @@
 page-swiping {
   ion-content .scroll-content {
     background-color: color($colors, light);
+    padding-top: 20%!important;
   }
 
   #card-stack {
     width: 90%;
     height: 300px;
-    margin: 100px auto 0;
+    margin: 60px auto 0;
     position: relative;
   }
   
