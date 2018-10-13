@@ -3,6 +3,7 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { User } from '../../providers';
 import { MainPage } from '../';
+import { SwipingPage } from '../swiping/swiping';
 
 @IonicPage()
 @Component({
@@ -18,9 +19,6 @@ export class LoginPage {
     password: 'test'
   };
 
-  // Our translated text strings
-  private loginErrorString: string;
-
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController) {
@@ -29,9 +27,11 @@ export class LoginPage {
   // Attempt to login in through our User service
   doLogin() {
     this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push(MainPage);
+      // Set navigation root to following page, so that user can't go back to the login screen
+      // TODO: Swiping page should only be displayed the first time the user logs in
+      this.navCtrl.setRoot(SwipingPage);
     }, (err) => {
-      //this.navCtrl.push(TabsPage);
+      this.navCtrl.setRoot(SwipingPage);
       // Unable to log in
       let toast = this.toastCtrl.create({
         message: "Unable to login",

@@ -25,6 +25,7 @@
     "@ionic-native/splash-screen": "~4.15.0",
     "@ionic-native/status-bar": "~4.15.0",
     "@ionic/storage": "2.2.0",
+    "angular2-swing": "^0.14.0",
     "cordova-plugin-calendar": "5.1.2",
     "intl": "^1.2.5",
     "ion2-calendar": "^2.2.0",
