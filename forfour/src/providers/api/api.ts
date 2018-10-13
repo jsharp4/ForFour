@@ -7,7 +7,7 @@ import 'rxjs/add/operator/share';
  */
 @Injectable()
 export class Api {
-  url: string = 'https://example.com/api/v1';
+  url: string = 'http://forfour-env.terrp6nzxa.ap-southeast-1.elasticbeanstalk.com/userValidate';
 
   constructor(public http: HttpClient) {
   }

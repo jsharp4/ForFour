@@ -29,10 +29,12 @@ export class LoginPage {
     this.user.login(this.account).subscribe((resp) => {
       // Set navigation root to following page, so that user can't go back to the login screen
       // TODO: Swiping page should only be displayed the first time the user logs in
+      console.log("Login success");
       this.navCtrl.setRoot(SwipingPage);
     }, (err) => {
-      this.navCtrl.setRoot(SwipingPage);
+      //this.navCtrl.setRoot(SwipingPage);
       // Unable to log in
+      console.log("Login fail");
       let toast = this.toastCtrl.create({
         message: "Unable to login",
         duration: 3000,
