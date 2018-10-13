@@ -1,13 +1,14 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar hideBackButton *navbar>
     <ion-title>Sign up</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
+<ion-content padding>
+  <h2 class="headline">Sign up</h2>
   <form (submit)="doSignup()">
     <ion-list>
 

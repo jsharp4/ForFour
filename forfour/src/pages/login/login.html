@@ -1,13 +1,14 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar hideBackButton *navbar>
     <ion-title>Sign in</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
+<ion-content padding>
+  <h2 class="headline">Sign in</h2>
   <form (submit)="doLogin()">
     <ion-list>
 
