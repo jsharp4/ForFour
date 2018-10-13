@@ -1,0 +1,7 @@
+{
+  "name": "forfour",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
