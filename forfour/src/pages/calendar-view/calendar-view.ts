@@ -23,10 +23,10 @@ export class CalendarViewPage {
   //dateRange: { from: string; to: string; };
   dateMulti: string[];
   type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
-  optionsMulti: CalendarComponentOptions = {
+  /*optionsMulti: CalendarComponentOptions = {
     pickMode: 'multi',
     color: 'secondary'
-  };
+  };*/
 
   // eventSource = [];
   // viewTitle: string;
