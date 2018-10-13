@@ -14,6 +14,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { User } from '../providers/user/user';
 import { Api } from '../providers/api/api';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { SwingModule } from 'angular2-swing';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    SwingModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule
   ],
