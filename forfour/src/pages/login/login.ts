@@ -24,7 +24,6 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController) {
-      this.user = user;
     }
 
   // Attempt to login in through our User service
@@ -32,10 +31,10 @@ export class LoginPage {
     this.user.login(this.account).subscribe((resp) => {
       this.navCtrl.push(TabsPage);
     }, (err) => {
-      this.navCtrl.push(TabsPage);
+      //this.navCtrl.push(TabsPage);
       // Unable to log in
       let toast = this.toastCtrl.create({
-        message: this.loginErrorString,
+        message: "Unable to login",
         duration: 3000,
         position: 'top'
       });
