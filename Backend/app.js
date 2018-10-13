@@ -8,6 +8,10 @@ var app = express();
 
 app.use(cors());
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 var username = "";
 
 function init() {
@@ -57,10 +61,6 @@ app.get('/userValidate', function(req, res) {
             else res.send(false);
     })
 })
-
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 app.post('/availabilities', function(req, res) {
     console.log(req);
