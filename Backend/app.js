@@ -26,7 +26,8 @@ app.get('/', function(req, res) {
 
 app.get('/questions', function(req, res) {
     db.getTableAttribute("prompt", "Questions").then(function(value) {
-        console.log(req);
+        //console.log(req);
+        //console.log(value);
         var list = {};
         var questions = [];
         for (i in value) {
@@ -34,6 +35,7 @@ app.get('/questions', function(req, res) {
             questions.push(add);
         }
         list["results"] = questions;
+        console.log(list);
         res.send(list);
     })
 });
