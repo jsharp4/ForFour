@@ -57,6 +57,7 @@ app.post('/userValidate', function(req, res) {
     console.log(req);
     db.getSingleAttributes(["_id"], {email: req.body.email, password: req.body.password}, "Users").then(
         function(value) {
+            console.log("FIND VALUE: " + value);
             if (value != null) res.send(true);
             else res.send(false);
     })
