@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var email = "";
+var email = "test_user@gmail.com";
 
 function init() {
     app.listen(8081);
