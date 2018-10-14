@@ -14,6 +14,15 @@ exports.updateRecord = function updateRecord(record_id, attribute, table) {
     });
 }
 
+exports.newAttr = function newAttr(record_id, attribute, table) {
+    MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
+        const collection = client.db(db_name).collection(table);
+        collection.findOneAndUpdate({ _id: { $eq: record_id } }, { $addToSet: attribute });
+        client.close();
+    });
+}
+
+
 exports.addRecord = function addRecord(record, table) {
     MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
         const collection = client.db(db_name).collection(table);
