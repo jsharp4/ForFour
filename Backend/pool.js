@@ -31,11 +31,14 @@ exports.makeGroups = function makeGroups() {
 
 exports.updateVector = function updateVector(answers, user_id) {
     var vector = [];
+    console.log(answers);
+    console.log(user_id);
     for (i in answers) {
        if (answers[i].answer) {
            vector.push(1);
        }
        else vector.push(-1);
+       console.log(vector);
     }
     db.updateRecord({_id: user_id}, {vector: vector}, "Users");
 
