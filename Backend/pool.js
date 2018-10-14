@@ -38,7 +38,7 @@ exports.updateVector = function updateVector(answers, user_id) {
            vector.push(1);
        }
        else vector.push(-1);
-       console.log(vector);
+      
     }
     db.updateRecord(user_id, {vector: vector}, "Users");
 

@@ -46,7 +46,7 @@ app.post('/answers', function(req, res) {
     db.getSingleAttributes(["_id"], {email: email}, "Users").then(function(value) {
         console.log(value);
         pool.updateVector(req.body.answers, value._id);
-        res.send('success');
+        res.send({'status': 'success'});
     });
 })
 

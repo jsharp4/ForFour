@@ -9,7 +9,7 @@ var MongoClient = require('mongodb').MongoClient;
 exports.updateRecord = function updateRecord(record_id, attribute, table) {
     MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
         const collection = client.db(db_name).collection(table);
-        collection.findOneAndUpdate({ _id: { $eq: record_id } }, { $set: attribute });
+        collection.updateOne({ _id: { $eq: record_id } }, { $set: attribute });
         client.close();
     });
 }
