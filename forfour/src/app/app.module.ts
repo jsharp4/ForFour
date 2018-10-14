@@ -8,6 +8,8 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { SwipingPage } from '../pages/swiping/swiping';
 import { CalendarViewPage } from '../pages/calendar-view/calendar-view';
 import { ProfilePage} from '../pages/profile/profile';
+import { LoginPage} from '../pages/login/login';
+import { SignupPage} from '../pages/signup/signup';
 import { ItineraryPage } from '../pages/itinerary/itinerary';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -31,6 +33,8 @@ import { RestProvider } from '../providers/rest/rest';
     WelcomePage,
     SwipingPage,
     ProfilePage,
+    LoginPage,
+    SignupPage,
     ItineraryPage
   ],
   imports: [
@@ -49,6 +53,8 @@ import { RestProvider } from '../providers/rest/rest';
     WelcomePage,
     SwipingPage,
     ProfilePage,
+    LoginPage,
+    SignupPage
     ItineraryPage
   ],
   providers: [

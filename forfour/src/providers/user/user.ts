@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 
 import { Api } from '../api/api';
 
+import { Http } from '@angular/http';
+
 /**
  * Most apps have the concept of a User. This is a simple provider
  * with stubs for login/signup/etc.
@@ -27,14 +29,16 @@ import { Api } from '../api/api';
 export class User {
   _user: any;
 
-  constructor(public api: Api) { }
+  constructor(public api: Api, public http: Http) { }
 
   /**
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
   login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
+    console.log(accountInfo);
+    let seq = this.api.post('userValidate', JSON.stringify(accountInfo)).share();
+    //let seq = this.http.post('http://sg.flomllr.com/userValidate', JSON.stringify(accountInfo)).share();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
