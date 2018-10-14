@@ -21,6 +21,7 @@ import { SwingModule } from 'angular2-swing';
 //import { NgCalendarModule } from 'ionic2-calendar';
 import { CalendarModule } from 'ion2-calendar';
 import { User } from '../providers/user/user';
+import { RestProvider } from '../providers/rest/rest';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { User } from '../providers/user/user';
     SplashScreen,
     User,
     Api,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RestProvider
   ]
 })
 export class AppModule {}

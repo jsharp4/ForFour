@@ -14,5 +14,14 @@
 
 
 <ion-content padding>
+  <button ion-item full *ngFor="let item of jsonFile"
+  (click)="itemSelected(item)">
+  <h2>Itinerary {{item["id"]}}</h2>
+  <p>Who: {{item["members"]["1"]}}, {{item["members"]["2"]}},
+    {{item["members"]["3"]}}</p>
+  <p>Where: {{item["location"]}}</p>
+  <p>When: {{item["dateTime"]}}</p>
+</button>
+
 
 </ion-content>
