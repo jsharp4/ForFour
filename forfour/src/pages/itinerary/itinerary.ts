@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 import { HttpClient } from '@angular/common/http';
 import { RestProvider } from '../../providers/rest/rest';
+
+import { RatingPage } from '../rating/rating';
 
 /**
  * Generated class for the ItineraryPage page.
@@ -52,7 +54,8 @@ export class ItineraryPage {
    ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public http:HttpClient, public restProvider:RestProvider) {
+    public http:HttpClient, public restProvider:RestProvider,
+    public modalCtrl:ModalController) {
     this.getUsers();
     var json;
 
@@ -69,9 +72,10 @@ export class ItineraryPage {
     });
   }
 
+  //opens modal
   itemSelected(item){
-    alert(item["id"]);
-
+    let myModal = this.modalCtrl.create(RatingPage);
+    myModal.present();
   }
 
 

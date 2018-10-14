@@ -9,6 +9,8 @@ import { SwipingPage } from '../pages/swiping/swiping';
 import { CalendarViewPage } from '../pages/calendar-view/calendar-view';
 import { ProfilePage} from '../pages/profile/profile';
 import { ItineraryPage } from '../pages/itinerary/itinerary';
+import { RatingPage } from '../pages/rating/rating';
+import { FeedbackPage } from '../pages/feedback/feedback';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,7 +33,9 @@ import { RestProvider } from '../providers/rest/rest';
     WelcomePage,
     SwipingPage,
     ProfilePage,
-    ItineraryPage
+    ItineraryPage,
+    RatingPage,
+    FeedbackPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,9 @@ import { RestProvider } from '../providers/rest/rest';
     WelcomePage,
     SwipingPage,
     ProfilePage,
-    ItineraryPage
+    ItineraryPage,
+    RatingPage,
+    FeedbackPage
   ],
   providers: [
     StatusBar,
