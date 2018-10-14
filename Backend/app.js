@@ -45,7 +45,8 @@ app.post('/answers', function(req, res) {
     console.log(email);
     console.log(req)
     db.getSingleAttributes(["_id"], {email: email}, "Users").then(function(value) {
-        pool.updateVector(req.body[0], value);
+        console.log(value);
+        pool.updateVector(req.body[0], value[0]);
     });
 })
 
