@@ -46,12 +46,12 @@ export class CalendarViewPage {
   }
 
   presentToast() {
-      const toast = this.toastCtrl.create({
-        message: 'Dates Saved!',
-        duration: 3000
-      });
-      this.saveDates();
-      toast.present(toast);
+    const toast = this.toastCtrl.create({
+      message: "Dates saved. Let's get matched!",
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
   }
 
 
