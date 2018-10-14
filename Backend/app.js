@@ -40,7 +40,7 @@ app.get('/questions', function(req, res) {
     })
 });
 
-app.get('/answers', function(req, res) {
+app.post('/answers', function(req, res) {
     //TODO convert answers to vector values
     db.getSingleAttributes(["_id"], {email: email}, "Users").then(function(value) {
         pool.updateVector(res.body[0], value);
