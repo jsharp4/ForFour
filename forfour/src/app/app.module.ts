@@ -7,9 +7,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { SwipingPage } from '../pages/swiping/swiping';
 import { CalendarViewPage } from '../pages/calendar-view/calendar-view';
+import { ItineraryPage } from '../pages/itinerary/itinerary';
 import { ProfilePage} from '../pages/profile/profile';
 import { LoginPage} from '../pages/login/login';
 import { SignupPage} from '../pages/signup/signup';
+import { FeedbackPage } from '../pages/feedback/feedback';
+import { RatingPage } from '../pages/rating/rating';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,12 +30,15 @@ import { User } from '../providers/user/user';
   declarations: [
     MyApp,
     CalendarViewPage,
+    ItineraryPage,
     TabsPage,
     WelcomePage,
     SwipingPage,
     ProfilePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    RatingPage,
+    FeedbackPage
   ],
   imports: [
     BrowserModule,
@@ -46,12 +52,15 @@ import { User } from '../providers/user/user';
   entryComponents: [
     MyApp,
     CalendarViewPage,
+    ItineraryPage,
     TabsPage,
     WelcomePage,
     SwipingPage,
     ProfilePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    RatingPage,
+    FeedbackPage
   ],
   providers: [
     StatusBar,
