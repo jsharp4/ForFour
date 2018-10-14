@@ -15,7 +15,7 @@ export class SignupPage {
   // sure to add it to the type
   account: { name: string, email: string, password: string } = {
     name: 'Test Human',
-    email: 'test@example.com',
+    email: 'test@e.ntu.edu.sg',
     password: 'test'
   };
 

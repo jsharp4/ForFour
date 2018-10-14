@@ -13,6 +13,7 @@ import {
   SwingCardComponent} from 'angular2-swing';
 import 'rxjs/Rx';
 import { isBoolean } from 'ionic-angular/umd/util/util';
+import questions from '../../mock/questions.js';
 
 /**
  * Generated class for the SwipingPage page.
@@ -87,8 +88,20 @@ export class SwipingPage {
   goHome() {
     console.log(this.resultObj);
     // Uncomment as soon as api server is ready
-    //let seq = this.api.post('answers', JSON.stringify(this.resultObj));
-    this.navCtrl.setRoot(TabsPage);
+    console.log(JSON.stringify(this.resultObj));
+    let seq = this.api.post('answers', JSON.stringify(this.resultObj));
+    seq.subscribe((res: any) => {
+      console.log("Success");
+      console.log(res);
+      // If the API returned a successful response, mark the user as logged in
+      //if (res.status == 'success') {
+      this.navCtrl.setRoot(TabsPage);
+      //}
+    }, err => {
+      console.log("Failure");
+      console.error('ERROR', err);
+    });
+    
   }
   
   // Connected through HTML
@@ -103,22 +116,23 @@ export class SwipingPage {
     }
     if (!like) {
       answerData.answer = true;
-      this.recentCard = 'You liked !: ' + removedCard.title;
+      this.recentCard = 'You like ' + removedCard.verb + '.';
     } else {
       answerData.answer = false;
-      this.recentCard = 'You disliked !: ' + removedCard.title;
+      this.recentCard = 'You dislike ' + removedCard.verb + '.';
     }
     this.resultObj.answers.push(answerData);
   }
   
   // Add new cards to our array
   addCards() {
-    this.http.get('http://local2.flomllr.com/questions')
+    /*this.http.get('http://localhost:3000/questions')
     .map(data => data.json().results)
-    .subscribe(result => {
-      for (let val of result) {
-        this.cards.push(val);
-      }
+    */
+    console.log(questions);
+    questions.questions.results.forEach(result => {
+      console.log(result);
+      this.cards.push(result);
     })
   }
   

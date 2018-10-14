@@ -18,9 +18,9 @@
   <div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(true)" (throwoutright)="voteUp(false)" id="card-stack">
       <ion-card #mycards1 swing-card *ngFor="let c of cards">
         <ion-card>
+          <img [src]=c.thumbnailUrl/>
           <div class="overlay dark"></div>
           <div class="overlay color"></div>
-          <img [src]=c.thumbnailUrl/>
           <div class="card-title">{{ c.title }}</div>
           <div class="card-subtitle">{{ c.subtitle }}</div>
         </ion-card>

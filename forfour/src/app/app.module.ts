@@ -8,6 +8,8 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { SwipingPage } from '../pages/swiping/swiping';
 import { CalendarViewPage } from '../pages/calendar-view/calendar-view';
 import { ProfilePage} from '../pages/profile/profile';
+import { LoginPage} from '../pages/login/login';
+import { SignupPage} from '../pages/signup/signup';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +30,9 @@ import { User } from '../providers/user/user';
     TabsPage,
     WelcomePage,
     SwipingPage,
-    ProfilePage
+    ProfilePage,
+    LoginPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ import { User } from '../providers/user/user';
     TabsPage,
     WelcomePage,
     SwipingPage,
-    ProfilePage
+    ProfilePage,
+    LoginPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
