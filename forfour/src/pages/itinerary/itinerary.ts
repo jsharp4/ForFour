@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 import { HttpClient } from '@angular/common/http';
 import { RestProvider } from '../../providers/rest/rest';
+
+import { RatingPage } from '../rating/rating';
+import { FeedbackPage } from '../feedback/feedback';
 
 /**
  * Generated class for the ItineraryPage page.
