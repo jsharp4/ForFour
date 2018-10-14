@@ -10,6 +10,7 @@ import { CalendarViewPage } from '../pages/calendar-view/calendar-view';
 import { ProfilePage} from '../pages/profile/profile';
 import { LoginPage} from '../pages/login/login';
 import { SignupPage} from '../pages/signup/signup';
+import { ItineraryPage } from '../pages/itinerary/itinerary';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,6 +23,7 @@ import { SwingModule } from 'angular2-swing';
 //import { NgCalendarModule } from 'ionic2-calendar';
 import { CalendarModule } from 'ion2-calendar';
 import { User } from '../providers/user/user';
+import { RestProvider } from '../providers/rest/rest';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { User } from '../providers/user/user';
     SwipingPage,
     ProfilePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    ItineraryPage
   ],
   imports: [
     BrowserModule,
@@ -52,13 +55,15 @@ import { User } from '../providers/user/user';
     ProfilePage,
     LoginPage,
     SignupPage
+    ItineraryPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     User,
     Api,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RestProvider
   ]
 })
 export class AppModule {}

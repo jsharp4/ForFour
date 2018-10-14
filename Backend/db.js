@@ -9,10 +9,19 @@ var MongoClient = require('mongodb').MongoClient;
 exports.updateRecord = function updateRecord(record_id, attribute, table) {
     MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
         const collection = client.db(db_name).collection(table);
-        collection.findOneAndUpdate({ _id: { $eq: record_id } }, { $set: attribute });
+        collection.updateOne({ _id: { $eq: record_id } }, { $set: attribute });
         client.close();
     });
 }
+
+exports.newAttr = function newAttr(record_id, attribute, table) {
+    MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
+        const collection = client.db(db_name).collection(table);
+        collection.findOneAndUpdate({ _id: { $eq: record_id } }, { $addToSet: attribute });
+        client.close();
+    });
+}
+
 
 exports.addRecord = function addRecord(record, table) {
     MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
@@ -30,6 +39,37 @@ exports.deleteRecord = function deleteRecord(record_id, table) {
     });
 }
 
+exports.getTableAttribute = function getTableAttribute(attribute, table) {
+    return new Promise(function(resolve, reject) {
+        MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
+            const collection = client.db(db_name).collection(table);
+            resolve(collection.distinct(attribute));
+            client.close();
+        });
+    });
+}
+
+exports.getSingleAttributes = function getSingleAttributes(attributes, query, table) {
+    return new Promise(function(resolve, reject) {
+        var projections = {};
+        for (i in attributes) {
+            projections[attributes[i]] = 1;
+        }
+        MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
+            const collection = client.db(db_name).collection(table);
+            resolve(collection.findOne(query, projections));
+            client.close();
+        });
+    });
+}
+
+exports.addEvent = function addEvent(user_id, new_event) {
+    MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
+        const collection = client.db(db_name).collection("Users");
+        collection.findOneAndUpdate({_id: user_id}, {$set: {events: [new_event]}});
+        client.close();
+    });
+}
 
 exports.getUsers = new Promise(function (resolve, reject) {
     var table = [];
@@ -52,8 +92,6 @@ exports.getUsers = new Promise(function (resolve, reject) {
     });
 });
 
-
-var user = { _id: 12346, email: "test@e.ntu.edu.sg", vector: { "a": 0.8, "b": 0.6, "c": 0.9, "d": 0.2, "e": 0.3 }, location: "Singapore", Events: {}, Groups: {}, Friends: {} };
 //exports.addRecord(user, "Users");
 // users = getTable("Users");
 // console.log(users);
@@ -68,11 +106,16 @@ var user = { _id: 12346, email: "test@e.ntu.edu.sg", vector: { "a": 0.8, "b": 0.
 //     exports.addRecord(user, "Users");
 // }
 
+//questions = ["What is your name?", "What is your quest?", "What is your favorite color?", "What is the capital of Assyria?", 
+ //          "What is the average air-speed velocity of an unladen swallow?"];
 // MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
 //     var collection = client.db(db_name).collection("Users");
-//     collection.deleteMany({ });
+//        collection.insertOne({email: "test_user@gmail.com", password: "test" }); 
+//     client.close();
+// });
 
-//     collection = client.db(db_name).collection("Groups");
-//     collection.deleteMany({ });
+// MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
+//     var collection = client.db(db_name).collection("Users");
+//        collection.insertOne({email: "test_user@gmail.com", password: "test", _id: 8675309, events: [], groups: []}); 
 //     client.close();
 // });
