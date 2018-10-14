@@ -52,7 +52,7 @@ app.get('/profileInfo', function(req, res) {
     db.getSingleAttributes(user_info, {username: res.username}, "Users");
 })
 
-app.get('/userValidate', function(req, res) {
+app.post('/userValidate', function(req, res) {
     console.log("----------------------------------USER VALIDATION-------------------------------------------");
     console.log(req);
     db.getSingleAttributes(["_id"], {email: req.body.account.email, password: req.body.account.password}, "Users").then(
