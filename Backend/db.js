@@ -97,8 +97,8 @@ exports.getUsers = new Promise(function (resolve, reject) {
 //     exports.addRecord(user, "Users");
 // }
 
-questions = ["What is your name?", "What is your quest?", "What is your favorite color?", "What is the capital of Assyria?", 
-           "What is the average air-speed velocity of an unladen swallow?"];
+//questions = ["What is your name?", "What is your quest?", "What is your favorite color?", "What is the capital of Assyria?", 
+ //          "What is the average air-speed velocity of an unladen swallow?"];
 // MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
 //     var collection = client.db(db_name).collection("Users");
 //        collection.insertOne({email: "test_user@gmail.com", password: "test" }); 
@@ -106,9 +106,7 @@ questions = ["What is your name?", "What is your quest?", "What is your favorite
 // });
 
 // MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
-//     var collection = client.db(db_name).collection("Questions");
-//     for (i in questions) {
-//        collection.insertOne({_id: i, prompt: questions[i]}); 
-//     }
+//     var collection = client.db(db_name).collection("Users");
+//        collection.insertOne({email: "test_user@gmail.com", password: "test", _id: 8675309, events: [], groups: []}); 
 //     client.close();
 // });
