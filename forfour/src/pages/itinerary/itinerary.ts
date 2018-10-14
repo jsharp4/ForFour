@@ -70,7 +70,7 @@ export class ItineraryPage {
   }
 
   itemSelected(item){
-    alert(item["id"]);
+    alert("details of event " + item["id"]);
 
   }
 
