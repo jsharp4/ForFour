@@ -2,7 +2,6 @@ var db = require('./db');
 var event = require('./event');
 var kmeans = require('node-kmeans');
 
-var weight = [1, 1, 1, 1, 1];
 
 exports.makeGroups = function makeGroups() {
     db.getUsers.then(function(value) {
@@ -30,14 +29,15 @@ exports.makeGroups = function makeGroups() {
     }).catch(console.error);
 }
 
-function updateWeight(answers, user_id) {
+exports.updateVector = function updateVector(answers, user_id) {
     var vector = [];
     for (i in answers) {
-       if (answers[i] == "y") {
-           vector.push(1 * weight[i]);
+       if (answers[i].answer) {
+           vector.push(1);
        }
-       else vector.push(-1 * weight[i]);
+       else vector.push(-1);
     }
+    db.updateRecord({_id: user_id}, {vector: vector}, "Users");
 
 }
 

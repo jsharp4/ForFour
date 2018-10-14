@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var username = "";
+var email = "";
 
 function init() {
     app.listen(8081);
@@ -42,7 +42,10 @@ app.get('/questions', function(req, res) {
 
 app.get('/answers', function(req, res) {
     //TODO convert answers to vector values
-    res.send("Stay tuned for updates!");
+    db.getSingleAttributes(["_id"], {email: email}, "Users").then(function(value) {
+        pool.updateVector(res.body[0], value);
+    });
+    res.send("Message received.");
 })
 
 app.get('/itineraries', function(req, res) {
@@ -64,6 +67,7 @@ app.get('/profileInfo', function(req, res) {
 app.post('/userValidate', function(req, res) {
     console.log("----------------------------------USER VALIDATION-------------------------------------------");
     console.log(req);
+    email = req.body.email;
     db.getSingleAttributes(["_id"], {email: req.body.email, password: req.body.password}, "Users").then(
         function(value) {
             console.log("FIND VALUE: " + value);
