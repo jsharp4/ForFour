@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar hideBackButton *navbar>
+  <ion-navbar>
     <ion-title>{{viewTitle}}</ion-title>
     <!-- <ion-buttons end>
       <button ion-button icon-only (click)="addEvent()">
@@ -19,8 +19,9 @@
 
 
 <ion-content padding>
-  <h2 class="headline">Welcome</h2>
+  <h2 style="text-align:center">Welcome back!</h2>
   <p>When do you want to hang?</p>
+
 
   <ion-calendar [(ngModel)]="dateMulti"
                 [options]="optionsMulti"

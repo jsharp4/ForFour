@@ -50,7 +50,8 @@ export class LoginPage {
       let toast = this.toastCtrl.create({
         message: "Unable to login",
         duration: 3000,
-        position: 'top'
+        position: 'top',
+        
       });
       toast.present();
     });
