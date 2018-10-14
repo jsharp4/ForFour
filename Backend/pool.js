@@ -40,7 +40,7 @@ exports.updateVector = function updateVector(answers, user_id) {
        else vector.push(-1);
        console.log(vector);
     }
-    db.addAttr({_id: user_id}, {vector: vector}, "Users");
+    db.newAttr({_id: user_id}, {vector: vector}, "Users");
 
 }
 
