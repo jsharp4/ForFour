@@ -41,12 +41,12 @@ app.get('/questions', function(req, res) {
 });
 
 app.post('/answers', function(req, res) {
-    //TODO convert answers to vector values
     console.log(email);
     console.log(req)
     db.getSingleAttributes(["_id"], {email: email}, "Users").then(function(value) {
         console.log(value);
         pool.updateVector(req.body.answers, value._id);
+        res.send('success');
     });
 })
 
