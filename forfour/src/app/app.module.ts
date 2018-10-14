@@ -43,7 +43,7 @@ import { RestProvider } from '../providers/rest/rest';
     SwingModule,
     IonicModule.forRoot(MyApp),
     CalendarModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

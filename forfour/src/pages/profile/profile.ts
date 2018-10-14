@@ -60,4 +60,5 @@ export class ProfilePage {
     myModal2.present();
   }
 
+
 }

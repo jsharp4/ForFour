@@ -14,6 +14,9 @@
 
 
 <ion-content padding>
+  <button ion-button end clear small icon-only (click)="closeModal()">
+    <ion-icon name="close"></ion-icon>
+  </button>
   <h2 text-align='center'>How do you feel about ForFour?</h2>
   <ion-list>
 
@@ -24,7 +27,7 @@
 
     <ion-row right>
       <ion-col text-right>
-        <button ion-button end>Submit</button>
+        <button ion-button end (click)="closeModal()">Submit</button>
       </ion-col>
     </ion-row>
 

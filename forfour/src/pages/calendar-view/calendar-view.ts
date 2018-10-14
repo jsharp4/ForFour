@@ -28,15 +28,6 @@ export class CalendarViewPage {
     color: 'secondary'
   };
 
-  // eventSource = [];
-  // viewTitle: string;
-  // selectedDay = new Date();
-  //
-  // calendar = {
-  //   mode: 'month',
-  //   currentDate: this.selectedDay
-  // }
-
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public toastCtrl: ToastController, public api: Api) {
   }
@@ -48,10 +39,12 @@ export class CalendarViewPage {
   presentToast() {
       const toast = this.toastCtrl.create({
         message: 'Dates Saved!',
-        duration: 3000
+        duration: 1000
       });
       this.saveDates();
       toast.present(toast);
+
+      
   }
 
 
