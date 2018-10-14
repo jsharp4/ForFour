@@ -34,15 +34,7 @@ exports.getTableAttribute = function getTableAttribute(attribute, table) {
     return new Promise(function(resolve, reject) {
         MongoClient.connect(uri, { useNewUrlParser: true }, function (err, client) {
             const collection = client.db(db_name).collection(table);
-            prompts = collection.distinct(attribute);
-            var list = {};
-            var questions = [];
-            for (i in prompts) {
-                var add = {id: i, question: prompts[i]};
-                questions.push(add);
-            }
-            list["results"] = questions;
-            resolve(list);
+            resolve(collection.distinct(attribute));
             client.close();
         });
     });
