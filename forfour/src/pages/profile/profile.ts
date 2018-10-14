@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import { Api } from '../../providers';
+
+import { FeedbackPage } from '../feedback/feedback';
 
 /**
  * Generated class for the ProfilePage page.
@@ -24,7 +26,8 @@ export class ProfilePage {
     nationality: 'German'
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api: Api, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public api: Api, public toastCtrl: ToastController, public modalCtrl:ModalController) {
   }
 
   ionViewDidLoad() {
@@ -50,6 +53,11 @@ export class ProfilePage {
       position: 'top'
     });
     toast.present();
+  }
+
+  feedback(){
+    let myModal2 = this.modalCtrl.create(FeedbackPage);
+    myModal2.present();
   }
 
 }
