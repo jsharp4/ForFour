@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 //import { NgCalendarModule } from 'ionic2-calendar';
-import { CalendarModule, CalendarComponentOptions } from 'ion2-calendar';
+import { CalendarModule } from 'ion2-calendar';
 import { ToastController } from 'ionic-angular';
 import { Api } from '../../providers/api/api';
 
@@ -23,10 +23,10 @@ export class CalendarViewPage {
   //dateRange: { from: string; to: string; };
   dateMulti: string[];
   type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
-  optionsMulti: CalendarComponentOptions = {
+  /*optionsMulti: CalendarComponentOptions = {
     pickMode: 'multi',
     color: 'secondary'
-  };
+  };*/
 
   // eventSource = [];
   // viewTitle: string;
