@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
 app.get('/questions', function(req, res) {
     db.getTableAttribute("prompt", "Questions").then(function(value) {
         //console.log(req);
-        //console.log(value);
+        console.log(value);
         var list = {};
         var questions = [];
         for (i in value) {
